@@ -8,9 +8,9 @@ function ServicesList() {
      console.log('location', location);
 
     const services = servicesData.map(service => (
-        <div key={service._id}>
+        <div key={service._id} className="service-block" style={{background: service.color}}>
             <h3><Link to={`/services/${service._id}`}>{service.name}</Link></h3>
-            <div className="description">{service.description}</div>
+            <div className="service-block__description">{service.description}</div>
         </div>
     ))
     return (

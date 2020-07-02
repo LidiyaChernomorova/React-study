@@ -23,10 +23,11 @@ function ServiceDetail(props) {
     }
 
     return (
-        <div>
+        <div className="service-block">
             <h1>Service Detail Page</h1>
-            <h3>{unitFromDB.name} - ${unitFromDB.color}</h3>
-            <div  className="description">{unitFromDB.description}</div>
+            <h3>{unitFromDB.name}</h3>
+            <span  style={{color: unitFromDB.color}} class="entypo-heart"></span>
+            <div className="service-block__description">{unitFromDB.description}</div>
             <button onClick={handleClick}>Go back to all services</button>
         </div>
     )

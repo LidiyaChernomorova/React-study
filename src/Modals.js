@@ -1,8 +1,7 @@
-import React from "react"
-import modalsData from "./db"
-import { Link } from "react-router-dom";
-import Modal from "./Modal";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import modalsData from "./db"
+import Modal from "./Modal";
 
 function Modals(props) {    
   const [open, setOpen] = useState(false);
@@ -18,7 +17,7 @@ function Modals(props) {
                   setOpen(!open);
                   setSelectedColor(modalUnit.color)
                 }}>
-                <Link to={modalUnit.name} >{modalUnit.name}</Link>
+           <Link to={modalUnit.name} >{modalUnit.name}</Link>
               </a>
                
             </div>
@@ -28,17 +27,22 @@ function Modals(props) {
 
         </div>
     ))
-    
+
     return (
         <>
             <h1>Modals variety:</h1>
-            {modalsBunch}
+        {modalsBunch}
+        
+        
             
-            <Modal selectedColor={selectedColor} open={open} onClose={() => setOpen(false)}>
+
+        <Modal selectedColor={selectedColor} open={open} onClose={() => setOpen(false)}>
             <div className="sampleColor" style={{background: selectedColor}}>
             Test Modal
             </div>
-            </Modal>
+        </Modal>
+        
+
         </>
     )
 }

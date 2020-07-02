@@ -3,6 +3,9 @@ $accent-color: hsl(300, 46%, 74%);
 // $purple: hsla(270, 100%, 60%, 0.5);
 // $orange: hsla(30, 100%, 60%, 0.5);
 // $green: hsla(100, 100%, 60%, 0.5);
+
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
 body {
   margin: 0 auto;
   width: 500px;
@@ -70,8 +73,21 @@ footer {
   background: $accent-color;
   padding: 10px;
 }
+.service-block {
+  padding: 5px 20px 20px 20px;
+  margin: 10px;
+  border-radius: 20px;
+  background-color: white;
 
-.description{
-  width: 400px;
-margin: auto;
+  &__description {
+    width: 400px;
+    margin: auto;
+    padding: 20px;
+  }
+}
+
+[class*="entypo-"]:before {
+  font-family: "entypo", sans-serif;
+  font-size: 60px;
+  filter: drop-shadow(10px 10px 10px $accent-color);
 }
