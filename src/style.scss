@@ -1,0 +1,77 @@
+$base-color: hsl(300, 58%, 86%);
+$accent-color: hsl(300, 46%, 74%);
+// $purple: hsla(270, 100%, 60%, 0.5);
+// $orange: hsla(30, 100%, 60%, 0.5);
+// $green: hsla(100, 100%, 60%, 0.5);
+body {
+  margin: 0 auto;
+  width: 500px;
+}
+
+#root {
+  min-height: 100vh;
+  background-color: $base-color;
+  text-align: center;
+  display: grid;
+  grid-template-rows: fit-content(100%) auto fit-content(100%);
+}
+
+button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 2;
+  background: #fafafa;
+  padding: 1rem;
+  min-height: 200px;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: show 0.25s ease forwards;
+  &__close {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+}
+@keyframes show {
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+nav {
+  background: $accent-color;
+  padding: 30px;
+}
+
+.sampleColor {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(10px 10px 10px $accent-color);
+}
+
+footer {
+  background: $accent-color;
+  padding: 10px;
+}
+
+.description{
+  width: 400px;
+margin: auto;
+}
