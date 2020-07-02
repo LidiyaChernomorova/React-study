@@ -1,50 +1,48 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import modalsData from "./db"
+import modalsData from "./db";
 import Modal from "./Modal";
 
-function Modals(props) {    
+function Modals(props) {
   const [open, setOpen] = useState(false);
-  const [selectedColor, setSelectedColor] = useState('');
+  const [selectedColor, setSelectedColor] = useState("");
+  const modalsBunch = modalsData.map((modalUnit) => (
+    <div key={modalUnit.id}>
+      <div className="sampleColor" style={{ background: modalUnit.color }}>
+        <a
+          onClick={() => {
+            setOpen(!open);
+            setSelectedColor(modalUnit.color);
+          }}
+        >
+          <Link to={modalUnit.name}>{modalUnit.name}</Link>
+        </a>
+      </div>
 
-    const modalsBunch = modalsData.map(modalUnit => (
-       
-        <div key={modalUnit.id}>
+      <p>{modalUnit.description}</p>
+      <hr />
+    </div>
+  ));
 
-            <div className="sampleColor" style={{background: modalUnit.color}}>
-               
-              <a onClick={() => {
-                  setOpen(!open);
-                  setSelectedColor(modalUnit.color)
-                }}>
-           <Link to={modalUnit.name} >{modalUnit.name}</Link>
-              </a>
-               
-            </div>
+  return (
+    <>
+      <h1>Modals variety:</h1>
+      {modalsBunch}
 
-            <p>{modalUnit.description}</p>
-            <hr />
-
+      <Modal
+        selectedColor={selectedColor}
+        open={open}
+        onClose={() => {
+          setOpen(false);
+          props.history.push("/modals");
+        }}
+      >
+        <div className="sampleColor" style={{ background: selectedColor }}>
+          Test Modal
         </div>
-    ))
-
-    return (
-        <>
-            <h1>Modals variety:</h1>
-        {modalsBunch}
-        
-        
-            
-
-        <Modal selectedColor={selectedColor} open={open} onClose={() => setOpen(false)}>
-            <div className="sampleColor" style={{background: selectedColor}}>
-            Test Modal
-            </div>
-        </Modal>
-        
-
-        </>
-    )
+      </Modal>
+    </>
+  );
 }
 
-export default Modals
+export default Modals;

@@ -12,9 +12,8 @@ import Profile from "./pages/profile/Profile";
 import ServicesList from "./pages/services/ServicesList";
 import ServiceDetail from "./pages/services/ServicesDetail";
 
-function App() {
+function App(props) {
   const listOfColors = modalsData.map((elem) => "/" + elem.name); // ["/purple", "/orange", "/green"]
-
   return (
     <>
       <Header />
